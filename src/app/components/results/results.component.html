@@ -1,0 +1,61 @@
+<section>
+  <app-card *ngIf="notFollowMe.length > 0" [maxWidth]="'80rem'">
+    <h2 class="table-title">Users Who Don't Follow Me Back</h2>
+    <p-table [value]="notFollowMe" [scrollable]="true" scrollHeight="400px" [paginator]="true" [rows]="5"
+      [tableStyle]="{ 'max-width': '1250px' }" [rowsPerPageOptions]="[5, 10, 20]" [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+
+      <ng-template #header>
+        <tr>
+          <th>Username</th>
+          <th>Date Followed</th>
+          <th style="width: 1rem">
+            <img src="ig-logo.png" alt="Instagram" style="width: 25px; height: 25px;" />
+          </th>
+        </tr>
+      </ng-template>
+
+      <ng-template #body let-user>
+        <tr>
+          <td>{{ user.value }}</td>
+          <td>{{ user.timestamp * 1000 | date:'dd/MM/yyyy, HH:mm:ss' }}</td>
+          <td>
+            <a [href]="user.href" target="_blank">
+              <img src="ig-logo.png" alt="Instagram" style="width: 25px; height: 25px;" />
+            </a>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </app-card>
+
+
+  <app-card *ngIf="notFollowing.length > 0" [maxWidth]="'80rem'">
+    <h2 class="table-title">Users I Don't Follow Back</h2>
+    <p-table [value]="notFollowing" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 20]"
+      [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+
+      <ng-template #header>
+        <tr>
+          <th>Username</th>
+          <th>Date Followed</th>
+          <th style="width: 1rem">
+            <img src="ig-logo.png" alt="Instagram" style="width: 25px; height: 25px;" />
+          </th>
+        </tr>
+      </ng-template>
+
+      <ng-template #body let-user>
+        <tr>
+          <td>{{ user.value }}</td>
+          <td>{{ user.timestamp * 1000 | date:'dd/MM/yyyy, HH:mm:ss' }}</td>
+          <td>
+            <a [href]="user.href" target="_blank">
+              <img src="ig-logo.png" alt="Instagram" style="width: 25px; height: 25px;" />
+            </a>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </app-card>
+</section>
