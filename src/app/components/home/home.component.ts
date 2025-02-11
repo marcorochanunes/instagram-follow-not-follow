@@ -1,17 +1,17 @@
-import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
-import { Router, RouterModule } from "@angular/router";
-import { MessageService } from "primeng/api";
-import { ButtonModule } from "primeng/button";
-import { FileUploadModule } from "primeng/fileupload";
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
+import { FileUploadModule } from 'primeng/fileupload';
 
-import { UserData } from "../../models/user-data";
-import { FileProcessingService } from "../../services/file-processing.service";
-import { CardComponent } from "../shared/card/card.component";
-import { FILE_TYPE_NAME } from "../../models/file-names.model";
+import { UserData } from '../../models/user-data';
+import { FileProcessingService } from '../../services/file-processing.service';
+import { CardComponent } from '../shared/card/card.component';
+import { FILE_TYPE_NAME } from '../../models/file-names.model';
 
 @Component({
-  selector: "app-home",
+  selector: 'app-home',
   standalone: true,
   imports: [
     CommonModule,
@@ -21,8 +21,8 @@ import { FILE_TYPE_NAME } from "../../models/file-names.model";
     CardComponent,
   ],
 
-  templateUrl: "./home.component.html",
-  styleUrl: "./home.component.scss",
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
   followers: UserData[] = [];
@@ -45,9 +45,9 @@ export class HomeComponent {
 
     if (missingFiles.length > 0) {
       this.messageService.add({
-        severity: "error",
-        summary: "Error",
-        detail: `JSON File(s) missing: ${missingFiles.join(", ")}`,
+        severity: 'error',
+        summary: 'Error',
+        detail: `JSON File(s) missing: ${missingFiles.join(', ')}`,
       });
       return false;
     }
@@ -65,10 +65,10 @@ export class HomeComponent {
 
         try {
           this.messageService.add({
-            severity: "info",
-            summary: "Processing Files",
+            severity: 'info',
+            summary: 'Processing Files',
             detail:
-              "Your files are being processed. Please wait until the process is completed.",
+              'Your files are being processed. Please wait until the process is completed.',
           });
           const result = await this.fileProcessingService.processFiles(files);
 
@@ -76,23 +76,23 @@ export class HomeComponent {
             this.showResultsLink = true;
 
             this.messageService.add({
-              severity: "success",
-              summary: "Files Processed Successfully",
+              severity: 'success',
+              summary: 'Files Processed Successfully',
               detail:
-                "Files have been processed. You can now view the results.",
+                'Files have been processed. You can now view the results.',
             });
           }
         } catch (error) {
           this.messageService.add({
-            severity: "error",
-            summary: "Error",
+            severity: 'error',
+            summary: 'Error',
             detail: `${error}`,
           });
         }
       } else {
         this.messageService.add({
-          severity: "error",
-          summary: "Error",
+          severity: 'error',
+          summary: 'Error',
           detail: `Please upload exactly two files: ${Object.values(
             FILE_TYPE_NAME
           )} `,

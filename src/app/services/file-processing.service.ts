@@ -1,18 +1,18 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
   FOLLOWERS,
   FOLLOWERS_FILE,
   FOLLOWING,
   FOLLOWING_FILE,
-} from "../constants/file-names.constant";
-import { BehaviorSubject } from "rxjs";
+} from '../constants/file-names.constant';
+import { BehaviorSubject } from 'rxjs';
 
-import { UserData } from "../models/user-data";
-import { IdentifiedFile } from "../models/identified-file.model";
-import { FILE_TYPE_NAME, FileType } from "../models/file-names.model";
+import { UserData } from '../models/user-data';
+import { IdentifiedFile } from '../models/identified-file.model';
+import { FILE_TYPE_NAME, FileType } from '../models/file-names.model';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class FileProcessingService {
   private followers: UserData[] = [];
