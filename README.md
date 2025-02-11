@@ -13,10 +13,13 @@ For more details on how to use the application, please refer to the instructions
 - Angular v19.1.3 (Standalone Configuration)
 - PrimeNG v19
 - PrimeFlex
+- Docker & Docker Compose
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.3.
 
-## Development server
+## Running the application
+
+### Development server (without Docker)
 
 To start a local development server, run:
 
@@ -25,6 +28,16 @@ ng serve
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+### Using Docker Compose
+
+To start the application using Docker Compose, ensure you have Docker installed and run:
+
+```bash
+docker-compose up --build
+```
+
+Once the container is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
 ## Code scaffolding
 

@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  instagram-follow-not-follow:
+    container_name: instagram-follow-not-follow
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development  
+    ports:
+      - '4200:4200'
